@@ -14,8 +14,8 @@ conn.connect(function(err){
 	conn.query(sql_query, function(err, result){
 		if(err)
 			throw err;
+
 		
-		console.log(result);
 		console.log('Table created successfully');
     });
 })
