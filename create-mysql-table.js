@@ -16,6 +16,7 @@ conn.connect(function(err){
 			throw err;
 
 		
+		
 		console.log('Table created successfully');
     });
 })
