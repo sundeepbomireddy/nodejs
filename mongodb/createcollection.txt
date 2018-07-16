@@ -1,3 +1,21 @@
 db.createCollection('listings');// create collection(table)
 
 show collections // show the list of all collections in the db
+
+db.listings.insert({listing_name:'lakshmi_LIL_GRP',description:"good apartment with well furnished bedrooms",status:"active"}); // insert one document into listings collection
+
+db.listings.find(); // show the list of all the documents/records present in listings collection
+
+db.listings.find().pretty(); // show the list of all the documents/records present in listings collection in clear format output for console
+
+// insert multiple documents into listings collection
+db.listings.insertMany([
+	{listing_name:"Shadhgun LIL BTB",description:"3 test rooms",status:"inactive"},
+	{listing_name:"ALTA LOL GL Charlie",description:"long island city",status:"active"}
+]); 
+
+// conditions to get the records
+db.listings.find({status:"inactive"});  // find inactive listings
+
+// find the count of rows for a specified condition 
+db.listings.find({status:"inactive"}).count();
