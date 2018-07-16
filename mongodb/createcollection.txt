@@ -1,0 +1,1 @@
+db.createCollection('listings');// create collection(table)
