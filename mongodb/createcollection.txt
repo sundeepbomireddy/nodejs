@@ -19,3 +19,9 @@ db.listings.find({status:"inactive"});  // find inactive listings
 
 // find the count of rows for a specified condition 
 db.listings.find({status:"inactive"}).count();
+
+// update collection where listing_name = ? if update without set is used then you should set all the column values other wise those fileds are removed  -- incorrect method to update
+db.listings.update({listing_name:"Shadhgun LIL BTB"},{description:"4 test rooms"});
+
+// update collection where listing_name = ?  updates only description value and does not remove other fileds -- correct update process
+db.listings.update({description:"4 test rooms"},{$set:{description:"44 test rooms"}});
