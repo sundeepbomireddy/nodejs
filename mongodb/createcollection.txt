@@ -25,3 +25,27 @@ db.listings.update({listing_name:"Shadhgun LIL BTB"},{description:"4 test rooms"
 
 // update collection where listing_name = ?  updates only description value and does not remove other fileds -- correct update process
 db.listings.update({description:"4 test rooms"},{$set:{description:"44 test rooms"}});
+
+// add new field to a particular document in a collection
+db.listings.update({"_id" :ObjectId("5b4c7b0f5d387ec49e147004") },{$set : {"expiry":1}}) 
+
+// add new field to all documents in a collection
+db.listings.update({},{$set : {"is_published":1}},{upsert:false,multi:true})
+
+// remove one field from a particular document
+db.listings.update({"_id" :ObjectId("5b4c7b0f5d387ec49e147004") },{$unset : {"expiry":""}});
+or 
+db.listings.update({"_id" :ObjectId("5b4c7b0f5d387ec49e147004") },{$unset : {"expiry":1}});
+
+
+// remove one field from all documents in a collection
+db.listings.update({},{$unset : {"is_published":1}},{upsert:false,multi:true} )
+
+// limit documents to 2
+db.listings.find().limit(2);
+
+// select only few columns in projection list
+db.listings.find({},{listing_title:1}).pretty();
+
+// if you dont want objectid column in projection list set _id to 0
+db.listings.find({},{listing_title:1,_id:0}).pretty();
