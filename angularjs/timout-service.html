@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl">
+	<p>The url of this page is:</p>
+	<h3>{{message}}</h3>
+	</div>
+	<p>This example uses the built-in $http service for GET method.</p>
+	<script>
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope, $timeout){
+		$scope.message = "Hello World";
+	    $timeout(function(){
+	   	   $scope.message = "How are you today?";
+	    },2000);
+	});
+	</script>
+</body>
+</html>
